@@ -11,7 +11,7 @@ TAILS=1
 
 headsCounter=0
 tailsCounter=0
-for (( i=0; i<10; i++ ))
+for (( i=0; i<42; i++ ))
 do
 	flipCoin=$(headsOrTails)
 	if [ $flipCoin -eq $HEADS ]
@@ -23,4 +23,14 @@ do
 	fi
 done
 
-echo "$headsCounter times heads won and $tailsCounter times tails won"
+if [ $headsCounter -eq $tailsCounter ]
+then
+	echo "Its tie"
+elif [ $headsCounter -gt $tailsCounter ]
+then
+	echo "Heads won"
+elif [ $tailsCounter -gt $headsCounter ]
+then
+	echo "Tails won"
+fi
+
